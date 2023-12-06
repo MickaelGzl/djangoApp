@@ -6,5 +6,7 @@ class Cours(models.Model):
     former = models.CharField(max_length=60)
     hours = models.IntegerField()
     first_lesson = models.DateTimeField()
+    note = models.FloatField(default=10.0)
+    numberOfNote = models.IntegerField(default=0)
 
 

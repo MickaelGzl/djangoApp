@@ -12,9 +12,11 @@
     </tr>
 </table>
 
+<span> Avis moyen sur le cours: {{cour.note}}/20</span>
+
 <div>
     <button><a href="{% url 'formEdit' cour.id %}">Modifier</a></button>
-    <button><a>Noter</a></button>
+    <button><a href="{% url 'note' cour.id %}">Noter</a></button>
 </div>
 <button><a href="/app">retour</a></button>
 
