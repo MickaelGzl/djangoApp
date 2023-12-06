@@ -1,1 +1,12 @@
 <h1>Hello Django</h1>
+
+{% if cours %}
+<ul>
+  {% for cour in cours %}
+  <li><a href="{% url 'details' cour.id %}">{{cour.title}}</a></li>
+  {% endfor %}
+</ul>
+{% else %}
+<span>Aucun cours disponible sur l'application</span>
+{% endif %}
+<button><a>Créer un cours</a></button>
