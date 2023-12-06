@@ -2,3 +2,13 @@
   {% csrf_token %} {{form}}
   <input type="submit" value="Envoyer" />
 </form>
+<!-- 
+{% if form.errors %}
+<div class="errors">
+  <ul>
+    {% for field, errors in form.errors.items %} {% for error in errors %}
+    <li>{{ error }}</li>
+    {% endfor %} {% endfor %}
+  </ul>
+</div>
+{% endif %} -->

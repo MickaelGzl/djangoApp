@@ -43,16 +43,19 @@ def courNote(req, cour_id):
     cour = get_object_or_404(Cours, pk=cour_id)
     if req.method == 'POST':
         form = NoteForm(req.POST, instance=cour)
+        actualNote = cour.note
         if form.is_valid():
             note = form.cleaned_data['note']
-            actualNote = cour.note
+            # actualNote = cour.note    ici cour.note = la note entrée dans le formulaire
             noteNumber = cour.numberOfNote
 
-            moy = (actualNote * noteNumber + note) / (noteNumber + 1)
-            cour.note = moy
+            moy = ((actualNote * noteNumber + note) / (noteNumber + 1))
+            print({'note': note, 'actualNote': actualNote, 'noteNumber': noteNumber, 'moy': moy})
+            cour.note = "{:.2f}".format(moy)
             cour.numberOfNote = cour.numberOfNote + 1
             cour.save()
             return HttpResponseRedirect('/app')
+    
     else:
         form = NoteForm()
     
